@@ -1,0 +1,62 @@
+name: Publish verified AI Polygon source
+on:
+  push:
+    paths:
+      - '.github/workflows/bootstrap.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify and unpack the release
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64
+          import hashlib
+          import io
+          import tarfile
+          from pathlib import Path
+          parts = sorted(Path('.bootstrap').glob('part*'))
+          assert [p.name for p in parts] == [f'part{i:02d}' for i in range(1, 7)], 'Release segments are missing'
+          payload = base64.b64decode(''.join(p.read_text().strip() for p in parts), validate=True)
+          expected = '51c85219446f666d7e6df3f30e574242ffe61abeaa22f31c83ca6d7b006b7e14'
+          assert hashlib.sha256(payload).hexdigest() == expected, 'Release checksum mismatch'
+          with tarfile.open(fileobj=io.BytesIO(payload), mode='r:xz') as archive:
+              for member in archive.getmembers():
+                  target = Path(member.name)
+                  assert not target.is_absolute() and '..' not in target.parts, 'Unsafe archive path'
+                  assert member.isfile() or member.isdir(), 'Unexpected archive member'
+              archive.extractall(path='.', filter='data')
+          print('Verified release archive and extracted the complete source tree.')
+          PY
+      - name: Verify Python contracts
+        run: python -m unittest discover -s tests -v
+      - name: Reproduce all 80 recorded trials
+        run: python polygon.py run-all --output results/local-ci.json
+      - name: Compare fresh evidence with the published reference
+        run: python scripts/check_reference.py results/local-ci.json
+      - name: Build and test the static dashboard
+        run: |
+          npm run build
+          npm test
+      - name: Commit the verified English source tree
+        shell: bash
+        run: |
+          rm -rf .bootstrap
+          rm -f .gitkeep .github/workflows/bootstrap.yml
+          git add -A
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Publish tested AI Polygon v0.2 source and Vercel site'
+          git push origin HEAD:main
