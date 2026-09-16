@@ -56,7 +56,7 @@ jobs:
         shell: bash
         run: |
           rm -rf .bootstrap
-          rm -f .gitkeep .github/workflows/bootstrap.yml
+          rm -f .gitkeep .github/workflows/verify.yml
           git add -A
           git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Publish tested AI Polygon v0.2 source and Vercel site'
           git push origin HEAD:main
