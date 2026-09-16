@@ -1,0 +1,9 @@
+{
+  "name": "ai-polygon",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Architecture-neutral, reproducible public AI benchmark demo",
+  "scripts": {"build": "node scripts/build.mjs", "test": "node --test tests/site.test.mjs"},
+  "engines": {"node": ">=20"},
+  "license": "MIT"
+}

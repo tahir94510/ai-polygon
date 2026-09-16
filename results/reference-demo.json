@@ -1,0 +1,190 @@
+{
+  "evaluation": "public_not_blind",
+  "schema": "polygon-public-demo-v1",
+  "seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "summary": [
+    {
+      "max": 0.6583333333333333,
+      "mean": 0.5983333333333334,
+      "metric": "accuracy",
+      "min": 0.49166666666666664,
+      "n": 5,
+      "project": "baseline_majority",
+      "proof_sha256": "88b6a7c2bad27428cc8337a6786bdd217288f0be5d0a0ddcac4ac15223eabb44",
+      "suite": "linear",
+      "track": "classification"
+    },
+    {
+      "max": 1.0,
+      "mean": 0.9833333333333334,
+      "metric": "accuracy",
+      "min": 0.9166666666666666,
+      "n": 5,
+      "project": "baseline_perceptron",
+      "proof_sha256": "fd9273caedc93b94f07dd5af3206306bccde91c01c1993ec9f1e0cb9e87cbdab",
+      "suite": "linear",
+      "track": "classification"
+    },
+    {
+      "max": 0.5,
+      "mean": 0.47833333333333333,
+      "metric": "accuracy",
+      "min": 0.4583333333333333,
+      "n": 5,
+      "project": "baseline_majority",
+      "proof_sha256": "9acc52ff8a3d28751884a8b013ed792650dbd87fc7022014a6207b2e9c7cd0db",
+      "suite": "xor",
+      "track": "classification"
+    },
+    {
+      "max": 0.5333333333333333,
+      "mean": 0.5016666666666667,
+      "metric": "accuracy",
+      "min": 0.475,
+      "n": 5,
+      "project": "baseline_perceptron",
+      "proof_sha256": "c9713880534aedb957e9ce0712d549308827311dabefb6f9b3161754c1eaaaf6",
+      "suite": "xor",
+      "track": "classification"
+    },
+    {
+      "max": 0.03805582952479276,
+      "mean": 0.03693683835262125,
+      "metric": "rmse",
+      "min": 0.035311031359612444,
+      "n": 5,
+      "project": "baseline_linear",
+      "proof_sha256": "7069ee8d3ef240a6460c27ab9dbc5e15e6ce1861b2a0278e304923a5ae6c7820",
+      "suite": "linear",
+      "track": "regression"
+    },
+    {
+      "max": 1.6306807664257739,
+      "mean": 1.0876223781491006,
+      "metric": "rmse",
+      "min": 0.7177800460764928,
+      "n": 5,
+      "project": "baseline_mean",
+      "proof_sha256": "3e90cdf343b57a54ba1dbed29ab3a6d0b1b5d25a2120dea4c0002d97aecb8f26",
+      "suite": "linear",
+      "track": "regression"
+    },
+    {
+      "max": 0.03840814841896823,
+      "mean": 0.037198583851956395,
+      "metric": "rmse",
+      "min": 0.03579573434877812,
+      "n": 5,
+      "project": "baseline_polynomial",
+      "proof_sha256": "54ef0c3c34e43f1dabe7a00a368e6ac725cb503d33242a2da67f9b66e2970ad9",
+      "suite": "linear",
+      "track": "regression"
+    },
+    {
+      "max": 0.03805582952479276,
+      "mean": 0.03693683835262125,
+      "metric": "rmse",
+      "min": 0.035311031359612444,
+      "n": 5,
+      "project": "example_custom",
+      "proof_sha256": "fe671961a181046ffd99df080261301314b01f44dd663491cf3b27fa23347021",
+      "suite": "linear",
+      "track": "regression"
+    },
+    {
+      "max": 0.3216768474032278,
+      "mean": 0.2960535368018573,
+      "metric": "rmse",
+      "min": 0.26714671591866107,
+      "n": 5,
+      "project": "baseline_linear",
+      "proof_sha256": "8af7beba19d1c89022ee7de82e7b9f3c77afcbb1e882bf6cf0b7eacd2ac0a375",
+      "suite": "nonlinear",
+      "track": "regression"
+    },
+    {
+      "max": 1.3282853130708612,
+      "mean": 0.9609822654188239,
+      "metric": "rmse",
+      "min": 0.7166508973415586,
+      "n": 5,
+      "project": "baseline_mean",
+      "proof_sha256": "4cf8041e73f7fd916c0efb131bc48d9f5ecee14c95f4998ca332c4e2a0ffaa87",
+      "suite": "nonlinear",
+      "track": "regression"
+    },
+    {
+      "max": 0.038736591569125095,
+      "mean": 0.03620665004567948,
+      "metric": "rmse",
+      "min": 0.03183009198414721,
+      "n": 5,
+      "project": "baseline_polynomial",
+      "proof_sha256": "6e4a7e370c8a703ab7529510f07ab692c548906a4677a107c0881108ff303db0",
+      "suite": "nonlinear",
+      "track": "regression"
+    },
+    {
+      "max": 0.038568079350996,
+      "mean": 0.03582193441767576,
+      "metric": "rmse",
+      "min": 0.03191267677728812,
+      "n": 5,
+      "project": "example_custom",
+      "proof_sha256": "8c91d8f4fe3cdbea358d5d9ec6108b51ccf9b497a0e3f697d86e0ce95cc1ce65",
+      "suite": "nonlinear",
+      "track": "regression"
+    },
+    {
+      "max": 1.721979363116543,
+      "mean": 1.592704466098525,
+      "metric": "rmse",
+      "min": 1.4889755639615383,
+      "n": 5,
+      "project": "baseline_linear",
+      "proof_sha256": "a6474801c5637ca778a24412cdfd74b3762b4470d360619b9a2cd126a0072880",
+      "suite": "shift",
+      "track": "regression"
+    },
+    {
+      "max": 3.6670051223780615,
+      "mean": 2.694694322823243,
+      "metric": "rmse",
+      "min": 1.9699023825975481,
+      "n": 5,
+      "project": "baseline_mean",
+      "proof_sha256": "8dbd57aa6b493fd09c9193f062b8005c0db320cb1b777a77d058b6402a0a12bb",
+      "suite": "shift",
+      "track": "regression"
+    },
+    {
+      "max": 0.0591116110176412,
+      "mean": 0.04968513623014757,
+      "metric": "rmse",
+      "min": 0.04142720074139309,
+      "n": 5,
+      "project": "baseline_polynomial",
+      "proof_sha256": "94ac20c14c000f8946acb1993f92f23c15cbab200fc73635461c78ba1bef86f5",
+      "suite": "shift",
+      "track": "regression"
+    },
+    {
+      "max": 0.05261985147945361,
+      "mean": 0.04254577716954075,
+      "metric": "rmse",
+      "min": 0.03816700830710023,
+      "n": 5,
+      "project": "example_custom",
+      "proof_sha256": "77ecc89598d251fdfc61ca599088fdd26391167dc2822d3ae03f0ed191a0d2df",
+      "suite": "shift",
+      "track": "regression"
+    }
+  ],
+  "trials": 80
+}

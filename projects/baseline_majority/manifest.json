@@ -1,0 +1,21 @@
+{
+  "name": "Majority class",
+  "description": "Simple classification control, not state of the art.",
+  "track": "classification",
+  "origin": "scratch",
+  "train": [
+    "python3",
+    "solver.py",
+    "train",
+    "{train}",
+    "{model}"
+  ],
+  "predict": [
+    "python3",
+    "solver.py",
+    "predict",
+    "{input}",
+    "{model}",
+    "{output}"
+  ]
+}

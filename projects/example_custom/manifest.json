@@ -1,0 +1,21 @@
+{
+  "name": "Experimental gated regression",
+  "description": "Experimental switch between linear and nonlinear features. Example of a self-contained independent approach, not a novel architecture.",
+  "track": "regression",
+  "train": [
+    "python3",
+    "solver.py",
+    "train",
+    "{train}",
+    "{model}"
+  ],
+  "predict": [
+    "python3",
+    "solver.py",
+    "predict",
+    "{input}",
+    "{model}",
+    "{output}"
+  ],
+  "origin": "scratch"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Mean baseline",
+  "description": "Training-label mean; intentionally simple reference.",
+  "track": "regression",
+  "train": [
+    "python3",
+    "solver.py",
+    "train",
+    "{train}",
+    "{model}"
+  ],
+  "predict": [
+    "python3",
+    "solver.py",
+    "predict",
+    "{input}",
+    "{model}",
+    "{output}"
+  ],
+  "origin": "scratch"
+}

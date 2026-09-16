@@ -1,0 +1,21 @@
+{
+  "name": "Ridge regression \u00b7 linear",
+  "description": "Pure Python regularized linear regression baseline.",
+  "track": "regression",
+  "train": [
+    "python3",
+    "solver.py",
+    "train",
+    "{train}",
+    "{model}"
+  ],
+  "predict": [
+    "python3",
+    "solver.py",
+    "predict",
+    "{input}",
+    "{model}",
+    "{output}"
+  ],
+  "origin": "scratch"
+}

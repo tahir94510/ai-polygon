@@ -1,0 +1,11 @@
+# Contributing to AI Polygon
+
+Any training paradigm, programming language, neural architecture or non-neural technique is welcome. The evaluation contract is shared; the implementation is yours.
+
+1. Open a GitHub issue describing your task or hypothesis. Fork this repository. Add a standalone directory under `projects/<your_id>/` with a `manifest.json` and all source needed to run it. Do not alter the benchmark generator to improve your own score.
+2. Define `name`, `description`, `track` (`regression` or `classification`), `origin` (`scratch` or `pretrained`), and two command arrays: `train` and `predict`. Supported placeholders: `{train}`, `{model}`, `{input}`, `{output}`. Commands are executed **without a shell**. Python is not required; include reproducible setup for your language and packages. Every dependency must be installed on the evaluator machine.
+3. Training receives JSONL rows such as `{"id":"train-0","x":[0.1,0.2,0.3],"y":1.2}` and writes an artifact to `{model}`. Prediction receives `{"id":"test-0","x":[0.1,0.2,0.3]}` **without labels** and writes `{"id":"test-0","prediction":1.23}` to `{output}`. Produce exactly one finite numeric prediction for each ID. Classification expects 0 or 1. This prototype limits model artifacts to 2 MB; propose a new versioned adapter for larger models.
+4. Run `python3 -m unittest discover -s tests -v`, `python3 polygon.py evaluate your_id linear --seed 11`, `npm run build`, `npm test`. Open a pull request with reproduction steps, dataset and pretrained-weight provenance, licenses and hardware requirements. Do not commit secrets, private data or huge weights.
+5. A maintainer must inspect untrusted code and dependencies **before merging**. The public workflow runs only on reviewed `main`, with a read-only token and no secrets. It is not an isolation sandbox. Never execute unreviewed contributor code locally or on a privileged runner.
+
+Scores are comparable only within the same task/suite/origin and similar training budgets. Public synthetic task labels are reverse-engineerable. CI-reproduced demo numbers are not blind, independently certified research results. GPU models require contributor-owned resources or a separately arranged trusted worker; this project does not provide free GPUs.
